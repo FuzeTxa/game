@@ -5,7 +5,6 @@ using UnityEngine;
 public class TreeFall : MonoBehaviour
 {
       [SerializeField ]private Animator Tree;
-      [SerializeField ]private string treeFall = "TreeFall";
       [SerializeField ]private GameObject TreeObject;
       Collider2D TreeColl;
 
@@ -27,7 +26,6 @@ public class TreeFall : MonoBehaviour
               Tree.Play("TreeFall");
               Destroy(gameObject);
               TreeColl.enabled = !TreeColl.enabled;
-
             }
 
       }

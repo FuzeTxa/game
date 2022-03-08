@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float MovementSpeed = 1f;
     public float JumpForce = 1f;
 
-
+    bool canMove = true;
     public Animator animator;
     private Rigidbody2D rb;
     private CapsuleCollider2D ground;
@@ -27,23 +27,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
-      float movement = Input.GetAxis("Horizontal");
+        float movement = Input.GetAxis("Horizontal");
+      if(canMove){
        rb.velocity = new Vector2(movement * MovementSpeed, rb.velocity.y);
-
+     }
        if(Input.GetAxis("Horizontal") > 0){
          transform.localScale = new Vector3(0.2f,0.2f,1);
          face = 1;
        }
 
-       if(Input.GetAxis("Horizontal") < 0){
+       if(Input.GetAxis("Horizontal") < 0 ){
          transform.localScale = new Vector3(-0.2f,0.2f,1);
          face = -1;
 
        }
       animator.SetFloat("Speed", Mathf.Abs(movement));
 
-        if(Input.GetButton("Jump") && grounded())  {
+        if(Input.GetButton("Jump") && grounded() && canMove)  {
           Jump();
           animator.SetBool("isJumping", true);
         }
@@ -64,5 +64,9 @@ public class PlayerMovement : MonoBehaviour
         private bool grounded(){
           return Physics2D.BoxCast(ground.bounds.center, ground.bounds.size, 0f, Vector2.down, .1f, layerGround);
         }
+
+    public void DisableMovement(){
+      canMove = false;
+    }
 
 }
