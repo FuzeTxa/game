@@ -36,7 +36,10 @@ public class Weapon : MonoBehaviour
         void Awake(){
         aimTransform = transform.Find("Aim");
       }
-
+      
+      void Start(){
+      richtung = 1;
+    }
 
     void Update()
     {
@@ -64,7 +67,7 @@ public class Weapon : MonoBehaviour
             richtung = PlayerMovement.Richtung();
             Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();
             Vector3 aimDirection = (mousePosition - transform.position).normalized;
-            if(richtung < 0){
+           if(richtung < 0){
               aimDirection.x = -aimDirection.x;
               mousePosition.x = -mousePosition.x;
               aimDirection.y = -aimDirection.y;

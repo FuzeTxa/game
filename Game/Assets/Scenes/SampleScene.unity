@@ -2100,7 +2100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &624405673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2390,7 +2390,7 @@ GameObject:
   m_Layer: 0
   m_Name: PortalTrigger
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2449,6 +2449,7 @@ MonoBehaviour:
   PortalAnim: {fileID: 755750426}
   pm: {fileID: 1838282038}
   Player: {fileID: 1838282032}
+  LevelToLoad: 1
 --- !u!1 &755750425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,7 +2464,7 @@ GameObject:
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2929,7 +2930,7 @@ GameObject:
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5752,7 +5753,7 @@ GameObject:
   m_Layer: 5
   m_Name: e
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6571,6 +6572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1823117386}
+  - component: {fileID: 1823117390}
   - component: {fileID: 1823117385}
   - component: {fileID: 1823117387}
   - component: {fileID: 1823117389}
@@ -6715,6 +6717,19 @@ CircleCollider2D:
   m_Offset: {x: -0.16772717, y: 1.5468204}
   serializedVersion: 2
   m_Radius: 0.3981793
+--- !u!114 &1823117390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823117384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ca31492b97a4d48b7e058209614974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 1588377531}
 --- !u!1 &1838282032
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,7 +6811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838282032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.47, y: -2.66, z: 0}
+  m_LocalPosition: {x: -3.32, y: -2.66, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 448996482}
