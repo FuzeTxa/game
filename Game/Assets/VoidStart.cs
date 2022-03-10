@@ -8,14 +8,14 @@ public class VoidStart : MonoBehaviour
 
   public Animator Animator;
   public GameObject AnimObject;
+//  public Animator fAnim;
 
-
-public Animator mcAnim;
-  public GameObject mcAnimObject;
+//  public Animator mcAnim;
 
 
   bool PlayAnim = false;
-  bool mcAnimBool = false;
+  //bool mcAnimBool = false;
+  //bool fAnimBool = false;
 
   void Start()
   {
@@ -31,10 +31,14 @@ public Animator mcAnim;
       Animator.Play("Void");
       PlayAnim = false;
     }
-      if(mcAnimBool){
-        mcAnim.Play("MCDim");
-        mcAnimBool = false;
-      }
+//      if(mcAnimBool){
+//        mcAnim.Play("MCDim");
+//        mcAnimBool = false;
+//      }
+//      if(fAnimBool){
+//        fAnim.Play("fAnim");
+//        fAnimBool = false;
+//      }
     }
 
 
@@ -43,10 +47,10 @@ public Animator mcAnim;
   yield return new WaitForSeconds (0.9f);
   Player.SetActive(true);
   AnimObject.SetActive(false);
-  yield return new WaitForSeconds (2);
-  mcAnimBool = true;
-  yield return new WaitForSeconds(1.5f);
-  mcAnimObject.SetActive(false);
+//  yield return new WaitForSeconds (1.5f);
+//  mcAnimBool = true;
+//  yield return new WaitForSeconds (1.5f);
+//  fAnimBool = true;
 }
 
 }
