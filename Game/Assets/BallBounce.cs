@@ -29,9 +29,10 @@ public class BallBounce : MonoBehaviour
     void Update()
     {
         LastVelocity = rb.velocity;
-  //      if(rb.velocity.x == 0 || rb.velocity.y == 0){
-  //        Destroy(gameObject);
-  //      }
+        
+        if(rb.velocity.x == 0 || rb.velocity.y == 0){
+         Destroy(gameObject);
+      }
 
     }
 

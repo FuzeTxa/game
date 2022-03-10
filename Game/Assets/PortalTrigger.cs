@@ -9,6 +9,7 @@ public class PortalTrigger : MonoBehaviour
   [SerializeField] private Animator PortalAnim;
   public PlayerMovement pm;
   [SerializeField] private GameObject Player;
+  [SerializeField] private GameObject ball;
 
   public int LevelToLoad;
   public static bool VoidAnim = false;
@@ -24,6 +25,12 @@ public class PortalTrigger : MonoBehaviour
             StartCoroutine(LoadNewScreen());
             VoidAnim = true;
 
+                  }
+                  if(coll.gameObject.CompareTag("player")){
+                    GameObject[] destroyObject;
+                    destroyObject = GameObject.FindGameObjectsWithTag("ball");
+                    foreach (GameObject oneObject in destroyObject)
+                    Destroy (oneObject);
                   }
 
     }
