@@ -36,9 +36,9 @@ public class Weapon : MonoBehaviour
         void Awake(){
         aimTransform = transform.Find("Aim");
       }
-      
+
       void Start(){
-      richtung = 1;
+
     }
 
     void Update()
@@ -119,6 +119,10 @@ public class Weapon : MonoBehaviour
         else if(richtung < 0){
           projectileInt = Instantiate(projectile, shotPoint.position, transform.rotation);
           projectileInt.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce *-1, ForceMode2D.Impulse);
+        }
+        if(richtung == 0){
+          projectileInt = Instantiate(projectile, shotPoint.position, transform.rotation);
+          projectileInt.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce , ForceMode2D.Impulse);
         }
         if(animator.GetBool("shoot")){
             shootFalse();
