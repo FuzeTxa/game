@@ -9,12 +9,14 @@ public class VoidStart : MonoBehaviour
   public Animator Animator;
   public GameObject AnimObject;
   public Animator mcAnim;
+  public Animator rAnim;
 
 //  public Animator mcAnim;
 
 
   bool PlayAnim = false;
   bool mcZoom = false;
+  bool rZoom = false;
   //bool fAnimBool = false;
 
   void Start()
@@ -34,10 +36,10 @@ public class VoidStart : MonoBehaviour
       if(mcZoom){
         mcAnim.Play("MCzoom");
        mcZoom = false;
-//      }
-//      if(fAnimBool){
-//        fAnim.Play("fAnim");
-//        fAnimBool = false;
+     }
+     if(rZoom){
+       rAnim.Play("rAnim");
+       rZoom = false;
       }
     }
 
@@ -49,8 +51,7 @@ public class VoidStart : MonoBehaviour
   AnimObject.SetActive(false);
   yield return new WaitForSeconds (1.5f);
   mcZoom = true;
-//  yield return new WaitForSeconds (1.5f);
-//  fAnimBool = true;
+  rZoom = true;
 }
 
 }
