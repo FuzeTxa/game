@@ -104,7 +104,6 @@ public class Weapon : MonoBehaviour
                   }
                   }
 
-              returnBall();
 
     }
       public void shoot()
@@ -155,11 +154,7 @@ public class Weapon : MonoBehaviour
 
           }
 
-          public void returnBall(){
-            if(Input.GetKeyDown("e")){
-              Destroy(projectileInt);
-            }
-          }
+
 
 void OnDrawGizmosSelected(){
   if(attackPoint == null){

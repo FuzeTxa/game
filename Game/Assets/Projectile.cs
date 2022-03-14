@@ -6,26 +6,24 @@ public class Projectile : MonoBehaviour
 {
     Vector3 LastVelocity;
 
-    public Transform shotPoint;
-    public Weapon weapon;
-    public Rigidbody2D rb;
+
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+      if(gameObject != null){
+        returnBall();
+      }
 
-
-      //  if(Physics.Raycast()){}
     }
 
     void OnTriggerEnter2D(Collider2D other){
         switch(other.gameObject.tag){
           case "Wall":
-          Destroy(gameObject);
+          Destroy(this);
           break;
 
         }
@@ -37,5 +35,12 @@ public class Projectile : MonoBehaviour
               Destroy(gameObject);
           }
         }
+
+        public void returnBall(){
+          if(Input.GetKeyDown("e")){
+            Destroy(gameObject);
+          }
+        }
+
 
 }

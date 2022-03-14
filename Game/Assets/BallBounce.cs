@@ -28,12 +28,13 @@ public class BallBounce : MonoBehaviour
 
     void Update()
     {
+        if(rb != null){
         LastVelocity = rb.velocity;
-        
+
         if(rb.velocity.x == 0 || rb.velocity.y == 0){
          Destroy(gameObject);
       }
-
+}
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
