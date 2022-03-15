@@ -20,14 +20,8 @@ public class Projectile : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        switch(other.gameObject.tag){
-          case "Wall":
-          Destroy(this);
-          break;
 
-        }
-    }
+    
     void OnCollisionEnter2D(Collision2D other)
     {
       if (other.gameObject.CompareTag("player"))

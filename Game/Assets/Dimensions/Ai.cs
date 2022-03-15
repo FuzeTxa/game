@@ -8,7 +8,9 @@ public class Ai : MonoBehaviour
     public GameObject projectile;
     public Transform shotPoint;
     [SerializeField] private Transform player;
+    [SerializeField] private Animator animator;
     Vector3 playerLoc;
+    bool canShoot = true;
 
 
     void Start()
@@ -21,14 +23,32 @@ public class Ai : MonoBehaviour
     {
         }
 
-    void OnTriggerStay2D(Collider2D coll){
-      if(coll.gameObject.tag == "player"){
-        playerLoc = new Vector3(player.position.x,player.position.y,player.position.z);
-        if(projectileInt2 == null){
+
+
+      public void shootPlayer(){
+        playerLoc = new Vector3(player.position.x,player.position.y,player.position.z) - shotPoint.position;
+        if(projectileInt2 == null && canShoot){
         projectileInt2 = Instantiate(projectile, shotPoint.position, transform.rotation);
-        projectileInt2.GetComponent<Rigidbody2D>().AddForce(playerLoc.normalized * 15 , ForceMode2D.Impulse);
-        Debug.Log("hi");
+        projectileInt2.GetComponent<Rigidbody2D>().AddForce(playerLoc.normalized * 10 , ForceMode2D.Impulse);
+        animator.SetBool("shoot", true);
+        StartCoroutine(endAnim());
+        canShoot = false;
+        StartCoroutine(shootAgain());
       }
       }
-      }
+
+
+
+      private IEnumerator shootAgain()
+      {
+        yield return new WaitForSeconds(1f);
+        canShoot = true;
+}
+
+private IEnumerator endAnim()
+{
+  yield return new WaitForSeconds(0.1f);
+  animator.SetBool("shoot", false);
+}
+
 }

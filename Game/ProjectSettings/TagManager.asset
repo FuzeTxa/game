@@ -10,6 +10,8 @@ TagManager:
   - player
   - Environment
   - Indicator
+  - enemyBall
+  - rangeWall
   layers:
   - Default
   - TransparentFX

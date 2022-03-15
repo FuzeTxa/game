@@ -136,14 +136,26 @@ public class Weapon : MonoBehaviour
             animator.SetBool("shoot", true);
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, ballLayers);
 
-            foreach(Collider2D enemy in hitEnemies){
+            foreach(Collider2D other in hitEnemies){
               SoundManagerScript.PlaySound("Schlag");
               if(richtung > 0){
+                if(other.gameObject.tag == "ball"){
               projectileInt.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce,  ForceMode2D.Impulse);
               }
-              else if(richtung < 0){
-                projectileInt.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce * -1,  ForceMode2D.Impulse);
+              else if(other.gameObject.tag == "enemyBall"){
+                other.gameObject.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce,  ForceMode2D.Impulse);
               }
+
+            }
+              else if(richtung < 0){
+                if(other.gameObject.tag == "ball"){
+                projectileInt.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce * -1,  ForceMode2D.Impulse);
+
+              }
+              else if(other.gameObject.tag == "enemyBall"){
+                other.gameObject.GetComponent<Rigidbody2D>().AddForce(shotPoint.right.normalized * fireForce * -1,  ForceMode2D.Impulse);
+              }
+            }
               combo++;
             }
 
