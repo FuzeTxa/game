@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Reverse.unity
+- path: Assets/Scenes/MC.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+      if(grounded()){
+        Debug.Log("hi");
+      }
         float movement = Input.GetAxis("Horizontal");
       if(canMove){
        rb.velocity = new Vector2(movement * MovementSpeed, rb.velocity.y);
