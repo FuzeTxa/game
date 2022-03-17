@@ -6,12 +6,12 @@ public class TeleportAfterTutorial : MonoBehaviour
 {
 
 
-    [SerializeField] private GameObject camera;
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject camera; // GameObject "camera" wird hineinbezogen
+    [SerializeField] private GameObject player; // GameObject "player" wird hineinbezogen
 
 
 
-    void Start()
+    void Start() // wird bei Start ausgeführt
     {
 
     }
@@ -22,12 +22,12 @@ public class TeleportAfterTutorial : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnCollisionEnter2D(Collision2D coll) // Wenn etwas mit dem folgenden kollidiert, dann...
     {
 
-            if(coll.gameObject.CompareTag("player")){
-              camera.transform.position = new Vector3(-3.53f,11f,-10f);
-              player.transform.position = new Vector2(6.26f,8.26f);
+            if(coll.gameObject.CompareTag("player")){ // Wenn das kollidierende Objekt den Tag (player)  hat, dann...
+              camera.transform.position = new Vector3(-3.53f,11f,-10f); // verschiebe Kameraposition X/Y/Z auf eingetragene Werte
+              player.transform.position = new Vector2(6.26f,8.26f); // verschiebe Spieler X/Y auf eingetragene Werte
 
             }
 

@@ -50,7 +50,7 @@ public class changeTutorialText : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll)
     {
 
-            if(coll.gameObject.CompareTag("ball")){
+            if(coll.gameObject.CompareTag("ball")){         
               text++;
             }
 

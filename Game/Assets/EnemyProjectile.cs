@@ -16,21 +16,15 @@ public class EnemyProjectile : MonoBehaviour
     {
 
 
-      //  if(Physics.Raycast()){}
     }
 
-  //  void OnTriggerEnter2D(Collider2D other){
-  //      switch(other.gameObject.tag){
-  //        case "Wall":
-  //        Destroy(this);
-  //        break;
-//
-  //      }
-  //  }
+
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+      // wenn das mit dem Script verbundene gameObject ein anderes GameObject mit Tag "" berührt mach das:
       if (other.gameObject.CompareTag("player"))
           {
               Destroy(gameObject);
@@ -45,6 +39,7 @@ public class EnemyProjectile : MonoBehaviour
           Destroy(gameObject);
       }
 
+        // wenn Geschwindigkeit des Körpers 0 ist, vernichte es
         if(rb.velocity.x == 0 || rb.velocity.y == 0){
          Destroy(gameObject);
       }

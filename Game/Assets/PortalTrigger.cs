@@ -16,17 +16,19 @@ public class PortalTrigger : MonoBehaviour
 
 
 
-  private void OnCollisionEnter2D(Collision2D coll)
+  private void OnCollisionEnter2D(Collision2D coll) // wenn ein Körper mit dem Körper, welches mit diesem Script verbunden ist, kollidiert, macht das:
   {
 
-          if(coll.gameObject.CompareTag("player")){
-            PortalAnim.Play("Portal");
-            Player.SetActive(!Player.activeSelf);
-            StartCoroutine(LoadNewScreen());
+          if(coll.gameObject.CompareTag("player")){ // wenn das Objekt den Tag "Player" hat, mache:
+            PortalAnim.Play("Portal"); // spiele die Animation "Portal" ab
+            Player.SetActive(!Player.activeSelf); // deaktiviere das Objekt Player"
+            StartCoroutine(LoadNewScreen()); // führe Coroutine "LoadNewScreen" aus
             VoidAnim = true;
 
                   }
                   if(coll.gameObject.CompareTag("player")){
+
+// vernichte alle Objekte mit dem Tag "ball"
                     GameObject[] destroyObject;
                     destroyObject = GameObject.FindGameObjectsWithTag("ball");
                     foreach (GameObject oneObject in destroyObject)
@@ -43,8 +45,8 @@ public class PortalTrigger : MonoBehaviour
 
       private IEnumerator LoadNewScreen()
       {
-        yield return new WaitForSeconds (1.7f);
-          SceneManager.LoadScene(LevelToLoad);
+        yield return new WaitForSeconds (1.7f); // warte 1.7 Sekunden
+          SceneManager.LoadScene(LevelToLoad); // lade neue Szene
 
       }
 
